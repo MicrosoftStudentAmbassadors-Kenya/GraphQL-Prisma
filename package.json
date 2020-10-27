@@ -1,0 +1,23 @@
+{
+  "name": "GraphQL-Prisma",
+  "version": "1.0.0",
+  "description": "Building GraphQL APIs with Apollo and Prisma",
+  "main": "index.js",
+  "repository": "https://github.com/MicrosoftStudentAmbassadors-Kenya/GraphQL-Prisma",
+  "author": "Ruheni Alex",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon -r esm src/app.js"
+  },
+  "dependencies": {
+    "@prisma/cli": "^2.9.0",
+    "@prisma/client": "^2.9.0",
+    "apollo-server": "^2.18.2",
+    "esm": "^3.2.25",
+    "graphql": "^15.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
