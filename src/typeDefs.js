@@ -4,31 +4,23 @@ const typeDefs = gql`
 type Book {
   id: ID!
   title: String!
-  author: Author
+  author: String
   description: String!
   rating: Int
   published: Boolean!
   createdAt: String
 }
 
-type Author {
-  id: ID!
-  firstName: String!
-  lastName: String!
-  bio: String!
-  books: [Book]
-}
-
 type Query {
   book: Book!
   books: [Book]
-  author: Author
-  authors: [Author]
   publishedBooks(published: Boolean): [Book!]!
 }
 
 type Mutation {
-    createBook(authorId: Int, title: String!, description: String!, rating: Int, published: Boolean): Book
+    createBook(author: String, title: String!, description: String!, rating: Int, published: Boolean): Book!
+    updateOneBook(id: ID!, title: String!, description: String, rating: Int, published: Boolean): Book
+    deleteOneBook(id: ID!): Book
 }
 `
 

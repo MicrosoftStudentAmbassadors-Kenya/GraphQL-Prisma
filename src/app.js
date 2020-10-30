@@ -5,11 +5,6 @@ import resolvers from './resolvers'
 
 const prisma = new PrismaClient()
 
-// const resolvers = {
-//   Query: {
-//     info: () => "Hello there Internet Stranger!",
-//   },
-// };
 
 // enables creation and manipulation of GraphQL schema
 const schema = makeExecutableSchema({

@@ -8,14 +8,6 @@ const resolvers = {
         books: (_parent, _args, ctx) => {
             return ctx.prisma.book.findMany()
         },
-        author: (_parent, args, ctx) => {
-            return ctx.prisma.author.findOne({
-                where: { id: args.id }
-            })
-        },
-        authors: (_parent, _args, ctx) => {
-            return ctx.prisma.author.findMany()
-        },
         publishedBooks: (_parent, args, ctx) => {
             return ctx.prisma.book.findMany({
                 where: {
@@ -32,15 +24,27 @@ const resolvers = {
                     description: args.description,
                     rating: args.rating,
                     published: args.published,
-                    author: {
-                        connect: { id: args.authorId }
-                    }
+                    author: args.author
                 }
             })
+        },
+        updateOneBook: (_parent, args, ctx) => {
+            return ctx.prisma.book.update({
+                where: { id: args.id },
+                data: {
+                    title: args.title,
+                    description: args.description,
+                    rating: args.rating,
+                    published: args.rating
+                }
+            })
+        },
+        deleteOneBook: (_parent, args, ctx) => {
+            return ctx.prisma.book.delete({
+                where: { id: args.id }
+            })
         }
-    },
-    Book: {},
-    Author: {}
+    }
 }
 
 export default resolvers
