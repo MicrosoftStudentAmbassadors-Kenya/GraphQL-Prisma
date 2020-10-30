@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "nodemon -r esm src/app.js"
+    "start": "nodemon -r esm src/app.js",
+    "prestart": "npx prisma generate"
   },
   "dependencies": {
     "@prisma/cli": "^2.9.0",
